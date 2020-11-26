@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE1D49DB256F488A00D0A5A3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1D49DA256F488A00D0A5A3 /* MainViewController.swift */; };
 		AE27035A255BD44E00299437 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE270359255BD44E00299437 /* AppDelegate.swift */; };
 		AE27035C255BD44E00299437 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE27035B255BD44E00299437 /* SceneDelegate.swift */; };
-		AE27035E255BD44E00299437 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE27035D255BD44E00299437 /* ViewController.swift */; };
 		AE270361255BD44E00299437 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE27035F255BD44E00299437 /* Main.storyboard */; };
 		AE270364255BD44E00299437 /* PostureCorrector.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AE270362255BD44E00299437 /* PostureCorrector.xcdatamodeld */; };
 		AE270366255BD44F00299437 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE270365255BD44F00299437 /* Assets.xcassets */; };
@@ -17,10 +17,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE1D49DA256F488A00D0A5A3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		AE270356255BD44E00299437 /* PostureCorrector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PostureCorrector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE270359255BD44E00299437 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE27035B255BD44E00299437 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AE27035D255BD44E00299437 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AE270360255BD44E00299437 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AE270363255BD44E00299437 /* PostureCorrector.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PostureCorrector.xcdatamodel; sourceTree = "<group>"; };
 		AE270365255BD44F00299437 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,8 +60,8 @@
 			children = (
 				AE270359255BD44E00299437 /* AppDelegate.swift */,
 				AE27035B255BD44E00299437 /* SceneDelegate.swift */,
-				AE27035D255BD44E00299437 /* ViewController.swift */,
 				AE27035F255BD44E00299437 /* Main.storyboard */,
+				AE1D49DA256F488A00D0A5A3 /* MainViewController.swift */,
 				AE270365255BD44F00299437 /* Assets.xcassets */,
 				AE270367255BD44F00299437 /* LaunchScreen.storyboard */,
 				AE27036A255BD44F00299437 /* Info.plist */,
@@ -140,10 +140,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE27035E255BD44E00299437 /* ViewController.swift in Sources */,
 				AE27035A255BD44E00299437 /* AppDelegate.swift in Sources */,
 				AE270364255BD44E00299437 /* PostureCorrector.xcdatamodeld in Sources */,
 				AE27035C255BD44E00299437 /* SceneDelegate.swift in Sources */,
+				AE1D49DB256F488A00D0A5A3 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
