@@ -22,31 +22,39 @@
                                     <constraint firstAttribute="height" constant="271" id="IXS-Uy-95y"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="c7P-IQ-3ld">
-                                <rect key="frame" x="172" y="273" width="46" height="96"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="c7P-IQ-3ld">
+                                <rect key="frame" x="77" y="221" width="236" height="289"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C1i-1p-4nJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="236" height="91"/>
+                                        <state key="normal" backgroundImage="ConnectDevice"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLY-TG-J44">
-                                        <rect key="frame" x="0.0" y="33" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLY-TG-J44">
+                                        <rect key="frame" x="0.0" y="99" width="236" height="91"/>
+                                        <state key="normal" backgroundImage="StartMeasuring_default"/>
+                                        <state key="disabled" backgroundImage="StartMeasuring_disabled"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeS-n7-v7f">
-                                        <rect key="frame" x="0.0" y="66" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="0.0" y="198" width="236" height="91"/>
+                                        <state key="normal" backgroundImage="DailyReport"/>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="hLY-TG-J44" firstAttribute="centerX" secondItem="c7P-IQ-3ld" secondAttribute="centerX" id="ZP8-ds-pMq"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="kmc-xM-Cz8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1vd-uT-Tjc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="c7P-IQ-3ld" secondAttribute="trailing" constant="77" id="Tgn-O8-EZM"/>
                             <constraint firstItem="kmc-xM-Cz8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Wat-5D-VBA"/>
+                            <constraint firstItem="c7P-IQ-3ld" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="77" id="f84-Ob-SYv"/>
+                            <constraint firstItem="c7P-IQ-3ld" firstAttribute="centerX" secondItem="kmc-xM-Cz8" secondAttribute="centerX" id="ibf-6r-6Of"/>
                             <constraint firstAttribute="bottom" secondItem="kmc-xM-Cz8" secondAttribute="bottom" id="koD-RV-q5p"/>
                             <constraint firstItem="kmc-xM-Cz8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="pcP-YJ-j6g"/>
+                            <constraint firstItem="c7P-IQ-3ld" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="177" id="ych-Al-PNr"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -57,6 +65,10 @@
     </scenes>
     <resources>
         <image name="Background " width="839" height="508"/>
+        <image name="ConnectDevice" width="237" height="91"/>
+        <image name="DailyReport" width="237" height="91"/>
+        <image name="StartMeasuring_default" width="238" height="92"/>
+        <image name="StartMeasuring_disabled" width="237" height="91"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
