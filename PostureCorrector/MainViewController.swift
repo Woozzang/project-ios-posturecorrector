@@ -39,12 +39,20 @@ class MainViewController: UIViewController {
       // Get the new view controller using segue.destination.
       // Pass the selected object to the new view controller.
     
-    if segue.destination is  BluetoothTableViewController {
-      if let btvc = segue.destination as? BluetoothTableViewController{
+    print(segue.destination)
+    
+    if let dest = segue.destination as? UINavigationController {
+      
+      if let btvc = dest.topViewController as? BluetoothTableViewController {
         btvc.mainViewController = self
       }
     }
-    
+  }
+  
+  // unwind 방식을 이용한 프로퍼티 접근
+  @IBAction func cancel(_ unwindSegue: UIStoryboardSegue) {
+//    if let bluetoothVC = unwindSegue.source as? BluetoothTableViewController {
+//      self.connectButton.isEnabled = bluetoothVC.isConnected
+//    }
   }
 }
-

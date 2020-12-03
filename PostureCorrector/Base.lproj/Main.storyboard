@@ -22,9 +22,8 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C1i-1p-4nJ">
                                         <rect key="frame" x="0.0" y="0.0" width="236" height="91"/>
                                         <state key="normal" image="ConnectDevice"/>
-                                        <state key="disabled" image="DisconnectDevice"/>
                                         <connections>
-                                            <segue destination="dtL-0b-BcY" kind="show" animates="NO" id="xm9-Aj-iDc"/>
+                                            <segue destination="fuk-du-g0F" kind="show" id="gqm-YJ-sH2"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLY-TG-J44">
@@ -70,14 +69,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="920" y="102"/>
+            <point key="canvasLocation" x="1035" y="102"/>
         </scene>
-        <!--Bluetooth Table View Controller-->
+        <!--Select Device-->
         <scene sceneID="DlJ-O1-hRe">
             <objects>
                 <tableViewController id="dtL-0b-BcY" customClass="BluetoothTableViewController" customModule="PostureCorrector" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" springLoaded="YES" id="EEx-8A-qAM">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="756"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -104,13 +103,22 @@
                             <outlet property="delegate" destination="dtL-0b-BcY" id="uFl-Yq-1Wp"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Select Device" id="CQp-vF-Ohh">
+                        <barButtonItem key="leftBarButtonItem" title="Cancle" id="i4C-4x-mIw">
+                            <connections>
+                                <action selector="touchUpCancleButton:" destination="dtL-0b-BcY" id="ojt-7X-0zL"/>
+                                <segue destination="pMh-rs-yq9" kind="unwind" unwindAction="cancel:" id="yR6-u7-Lff"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bluetoothTableView" destination="EEx-8A-qAM" id="ixO-Fy-uRL"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4rJ-sm-URi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="pMh-rs-yq9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1742" y="102"/>
+            <point key="canvasLocation" x="2752" y="102"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sGg-QE-LpT">
@@ -136,12 +144,30 @@
             </objects>
             <point key="canvasLocation" x="138.46153846153845" y="101.65876777251184"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="EXe-No-FYt">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pJt-ZE-NLf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fuk-du-g0F" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="4Dg-P9-pRh"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2ki-1X-zfX">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dtL-0b-BcY" kind="relationship" relationship="rootViewController" id="8fH-Dd-hDq"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="1892" y="102"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Background " width="839" height="508"/>
         <image name="ConnectDevice" width="237" height="91"/>
         <image name="DailyReport" width="237" height="91"/>
-        <image name="DisconnectDevice" width="238" height="92"/>
         <image name="StartMeasuring_default" width="238" height="92"/>
         <image name="StartMeasuring_disabled" width="237" height="91"/>
         <systemColor name="systemBackgroundColor">

@@ -18,7 +18,11 @@ class BluetoothTableViewController: UITableViewController {
   
   var centralManager: CBCentralManager!
   
-  var isConnected: Bool = false
+  var isConnected: Bool = false {
+    didSet {
+      mainViewController?.connectButton.isEnabled = isConnected
+    }
+  }
   
   var updateTimer: Timer!
 
@@ -44,7 +48,8 @@ class BluetoothTableViewController: UITableViewController {
   }
   
   override func viewWillDisappear(_ animated: Bool) {
-    mainViewController?.connectButton.isEnabled = false
+    
+    self.isConnected = false
     updateTimer.invalidate()
   }
 
@@ -70,9 +75,10 @@ class BluetoothTableViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
+    centralManager.connect(bluetoothDeviceList[indexPath.row])
   }
   
+  // Asynchronously update tadle view according to discoverable bluetooth devices
   func updateTableView() {
     DispatchQueue.global(qos: .background).async {
 
@@ -119,13 +125,13 @@ class BluetoothTableViewController: UITableViewController {
     }
     */
 
-//    // MARK: - Navigation
-//
-//    // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        // Get the new view controller using segue.destination.
-//        // Pass the selected object to the new view controller.
-//    }
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
 
 }
 
@@ -138,7 +144,8 @@ extension BluetoothTableViewController: CBCentralManagerDelegate {
     case .resetting:
       break
     case .unsupported:
-      dismiss(animated: true, completion: nil)
+//      dismiss(animated: true, completion: nil)
+      break
     case .unauthorized:
       break
     case .poweredOff:
@@ -185,5 +192,12 @@ extension BluetoothTableViewController: CBCentralManagerDelegate {
     return
 }
   
+  func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
+    print("Connection Established.")
+  }
+  
+  func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
+    return
+  }
 
 }
