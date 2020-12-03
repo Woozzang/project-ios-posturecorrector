@@ -9,11 +9,20 @@ import UIKit
 
 class BluetoothTableViewController: UITableViewController {
   
+  let mainViewController = MainViewController()
+  
   @IBOutlet var bluetoothTableView: UITableView!
   
-  var bluetoothDeviceDict: [String:CBPeripheral] = [:]
+//  var bluetoothDeviceDict: [String:CBPeripheral] = [:]
+  var bluetoothDeviceList: [CBPeripheral] = []
   
   var centralManager: CBCentralManager!
+  
+  var isConnected: Bool = false {
+    didSet{
+      mainViewController.connectButton.isEnabled = !oldValue
+    }
+  }
   
   var updateTimer: Timer!
 
@@ -23,7 +32,7 @@ class BluetoothTableViewController: UITableViewController {
       centralManager = CBCentralManager(delegate: self, queue: nil)
       
       updateTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
-        self.update()
+        self.updateTableView()
       }
 
         // Uncomment the following line to preserve selection between presentations
@@ -50,23 +59,37 @@ class BluetoothTableViewController: UITableViewController {
 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       // #warning Incomplete implementation, return the number of rows
-    return bluetoothDeviceDict.count
-  }
-
-  @IBAction func touchUpCancleButton(_ sender: UIBarButtonItem) {
-    updateTimer.invalidate()
-    self.dismiss(animated: true, completion: nil)
+    return bluetoothDeviceList.count
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
     let cell = tableView.dequeueReusableCell(withIdentifier: "deviceName", for: indexPath)
     
-    cell.textLabel?.text = Array(self.bluetoothDeviceDict.keys)[indexPath.row]
+    cell.textLabel?.text = self.bluetoothDeviceList[indexPath.row].name
     
     return cell
   }
+  
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+  }
+  
+  @IBAction func touchUpCancleButton(_ sender: UIBarButtonItem) {
+    updateTimer.invalidate()
+    self.dismiss(animated: true, completion: nil)
+  }
+  
+  func updateTableView() {
+    DispatchQueue.global(qos: .background).async {
 
+        // Background Thread
+
+        DispatchQueue.main.async {
+          self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+        }
+    }
+  }
 
     /*
     // Override to support conditional editing of the table view.
@@ -132,26 +155,44 @@ extension BluetoothTableViewController: CBCentralManagerDelegate {
     case .poweredOn:
       centralManager.scanForPeripherals(withServices: nil)
     @unknown default:
-      print()
+      break
     }
   }
   
-  func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral,
-                      advertisementData: [String: Any], rssi RSSI: NSNumber) {
-    guard let name = peripheral.name  else {
+  func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String: Any], rssi RSSI: NSNumber) {
+  
+  guard peripheral.name != nil else {
+    return
+  }
+  
+  for (index, device) in bluetoothDeviceList.enumerated() {
+    if device.name == peripheral.name {
+      
+      bluetoothDeviceList[index] = peripheral
+      
+      bluetoothDeviceList.sort { (lhs, rhs) -> Bool in
+        guard let lname = lhs.name, let rname = rhs.name else {
+          return false
+        }
+        
+        return lname > rname
+      }
+      
       return
     }
-    bluetoothDeviceDict.updateValue(peripheral, forKey: name)
   }
-  
-  func update() {
-    DispatchQueue.global(qos: .background).async {
-
-        // Background Thread
-
-        DispatchQueue.main.async {
-          self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
-        }
+    
+    bluetoothDeviceList.append(peripheral)
+    bluetoothDeviceList.sort { (lhs, rhs) -> Bool in
+      guard let lname = lhs.name, let rname = rhs.name else {
+        return false
+      }
+      
+      return lname > rname
     }
-  }
+    
+    return
+}
+  
+
 }
