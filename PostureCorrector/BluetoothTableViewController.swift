@@ -9,7 +9,7 @@ import UIKit
 
 class BluetoothTableViewController: UITableViewController {
   
-  let mainViewController = MainViewController()
+  var mainViewController: MainViewController?
   
   @IBOutlet var bluetoothTableView: UITableView!
   
@@ -18,17 +18,14 @@ class BluetoothTableViewController: UITableViewController {
   
   var centralManager: CBCentralManager!
   
-  var isConnected: Bool = false {
-    didSet{
-      mainViewController.connectButton.isEnabled = !oldValue
-    }
-  }
+  var isConnected: Bool = false
   
   var updateTimer: Timer!
 
     override func viewDidLoad() {
       super.viewDidLoad()
       
+      self.navigationController?.isNavigationBarHidden = false
       centralManager = CBCentralManager(delegate: self, queue: nil)
       
       updateTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
@@ -47,7 +44,8 @@ class BluetoothTableViewController: UITableViewController {
   }
   
   override func viewWillDisappear(_ animated: Bool) {
-
+    mainViewController?.connectButton.isEnabled = false
+    updateTimer.invalidate()
   }
 
     // MARK: - Table view data source
@@ -73,11 +71,6 @@ class BluetoothTableViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
-  }
-  
-  @IBAction func touchUpCancleButton(_ sender: UIBarButtonItem) {
-    updateTimer.invalidate()
-    self.dismiss(animated: true, completion: nil)
   }
   
   func updateTableView() {
@@ -126,15 +119,13 @@ class BluetoothTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+//    // MARK: - Navigation
+//
+//    // In a storyboard-based application, you will often want to do a little preparation before navigation
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        // Get the new view controller using segue.destination.
+//        // Pass the selected object to the new view controller.
+//    }
 
 }
 
@@ -147,7 +138,7 @@ extension BluetoothTableViewController: CBCentralManagerDelegate {
     case .resetting:
       break
     case .unsupported:
-      break
+      dismiss(animated: true, completion: nil)
     case .unauthorized:
       break
     case .poweredOff:
