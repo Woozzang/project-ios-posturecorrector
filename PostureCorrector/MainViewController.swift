@@ -17,10 +17,15 @@ class MainViewController: UIViewController {
     didSet {
       guard isDeviceConnected == false else {
         
-        // if true
+        // if conncected
         connectButton.setImage(UIImage(named: "DisconnectDevice"), for: .normal)
+        measuringButton.isEnabled = true
         return
       }
+      
+      // if disconnected
+      connectButton.setImage(UIImage(named: "ConnectDevice"), for: .normal)
+      measuringButton.isEnabled = false
     }
   }
   
@@ -48,16 +53,15 @@ class MainViewController: UIViewController {
 
   // In a storyboard-based application, you will often want to do a little preparation before navigation
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      // Get the new view controller using segue.destination.
-      // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destination.
+    // Pass the selected object to the new view controller.
     
-    print(segue.destination)
-    
-    if let dest = segue.destination as? UINavigationController {
-      
-      if let btvc = dest.topViewController as? BluetoothTableViewController {
-        btvc.mainViewController = self
+    if segue.identifier == "connectActionSegue"{
+      guard let crvc = segue.destination as? ConnectRpiViewController else {
+        fatalError("Check prepaer(segue:sender:) at MainViewController; case: \"connectActionSegue\"")
       }
+      
+      crvc.mainViewController = self
     }
   }
   
@@ -65,9 +69,9 @@ class MainViewController: UIViewController {
     
     if isDeviceConnected == true {
       
-      // Code to disconnect from BLE Device
+      // Code to disconnect from RaspberryPi
       print("disconnect device")
-      self.performSegue(withIdentifier: "connectActionSegue" , sender: nil)
+//      self.performSegue(withIdentifier: "connectActionSegue" , sender: nil)
     } else {
       self.performSegue(withIdentifier: "connectActionSegue" , sender: nil)
     }
