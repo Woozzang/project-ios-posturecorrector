@@ -22,8 +22,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C1i-1p-4nJ">
                                         <rect key="frame" x="0.0" y="0.0" width="236" height="91"/>
                                         <state key="normal" image="ConnectDevice"/>
+                                        <state key="highlighted" image="DisconnectDevice"/>
                                         <connections>
-                                            <segue destination="fuk-du-g0F" kind="show" id="gqm-YJ-sH2"/>
+                                            <action selector="checkStateThenDisconnect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qyT-4L-Szl"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLY-TG-J44">
@@ -65,6 +66,7 @@
                         <outlet property="connectButton" destination="C1i-1p-4nJ" id="WcT-Qx-yeG"/>
                         <outlet property="dailyreportButton" destination="VeS-n7-v7f" id="HRG-yw-qNc"/>
                         <outlet property="measuringButton" destination="hLY-TG-J44" id="Kue-8d-xZD"/>
+                        <segue destination="fuk-du-g0F" kind="show" identifier="connectActionSegue" id="oKw-ZR-y4U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -168,6 +170,7 @@
         <image name="Background " width="839" height="508"/>
         <image name="ConnectDevice" width="237" height="91"/>
         <image name="DailyReport" width="237" height="91"/>
+        <image name="DisconnectDevice" width="238" height="92"/>
         <image name="StartMeasuring_default" width="238" height="92"/>
         <image name="StartMeasuring_disabled" width="237" height="91"/>
         <systemColor name="systemBackgroundColor">

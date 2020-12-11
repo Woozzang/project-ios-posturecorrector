@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE05B1C22582FACB00D9834A /* ConnectUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE05B1C12582FACB00D9834A /* ConnectUIButton.swift */; };
 		AE1D49DB256F488A00D0A5A3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1D49DA256F488A00D0A5A3 /* MainViewController.swift */; };
 		AE27035A255BD44E00299437 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE270359255BD44E00299437 /* AppDelegate.swift */; };
 		AE27035C255BD44E00299437 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE27035B255BD44E00299437 /* SceneDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE05B1C12582FACB00D9834A /* ConnectUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectUIButton.swift; sourceTree = "<group>"; };
 		AE1D49DA256F488A00D0A5A3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		AE270356255BD44E00299437 /* PostureCorrector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PostureCorrector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE270359255BD44E00299437 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				AE270367255BD44F00299437 /* LaunchScreen.storyboard */,
 				AE27036A255BD44F00299437 /* Info.plist */,
 				AE270362255BD44E00299437 /* PostureCorrector.xcdatamodeld */,
+				AE05B1C12582FACB00D9834A /* ConnectUIButton.swift */,
 			);
 			path = PostureCorrector;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE05B1C22582FACB00D9834A /* ConnectUIButton.swift in Sources */,
 				AE27035A255BD44E00299437 /* AppDelegate.swift in Sources */,
 				AEDC0C29257669A000CDBCD1 /* BluetoothTableViewController.swift in Sources */,
 				AE270364255BD44E00299437 /* PostureCorrector.xcdatamodeld in Sources */,

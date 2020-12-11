@@ -13,14 +13,21 @@ class BluetoothTableViewController: UITableViewController {
   
   @IBOutlet var bluetoothTableView: UITableView!
   
-//  var bluetoothDeviceDict: [String:CBPeripheral] = [:]
   var bluetoothDeviceList: [CBPeripheral] = []
   
   var centralManager: CBCentralManager!
   
-  var isConnected: Bool = false {
-    didSet {
-      mainViewController?.connectButton.isEnabled = isConnected
+  var connectedDevice: CBPeripheral? {
+    
+    didSet{
+      
+      if connectedDevice != nil {
+        //if connected
+        mainViewController?.isDeviceConnected = true
+        return
+      }
+      
+      mainViewController?.isDeviceConnected = false
     }
   }
   
@@ -48,8 +55,6 @@ class BluetoothTableViewController: UITableViewController {
   }
   
   override func viewWillDisappear(_ animated: Bool) {
-    
-    self.isConnected = false
     updateTimer.invalidate()
   }
 
@@ -137,6 +142,7 @@ class BluetoothTableViewController: UITableViewController {
 
 extension BluetoothTableViewController: CBCentralManagerDelegate {
   
+  
   func centralManagerDidUpdateState(_ central: CBCentralManager) {
     switch central.state {
     case .unknown:
@@ -144,7 +150,6 @@ extension BluetoothTableViewController: CBCentralManagerDelegate {
     case .resetting:
       break
     case .unsupported:
-//      dismiss(animated: true, completion: nil)
       break
     case .unauthorized:
       break
@@ -158,7 +163,10 @@ extension BluetoothTableViewController: CBCentralManagerDelegate {
   }
   
   func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String: Any], rssi RSSI: NSNumber) {
+    
+    print(peripheral)
   
+  // Return if name is 'nil'
   guard peripheral.name != nil else {
     return
   }
@@ -193,7 +201,22 @@ extension BluetoothTableViewController: CBCentralManagerDelegate {
 }
   
   func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
-    print("Connection Established.")
+    
+    connectedDevice = peripheral
+    
+    // Forced Uwrapping is avaliable with peripheral.name
+    // peripheral.name is always not nil by centralManager(didDiscover:)
+    
+    let successAlertView = UIAlertController(title:"Connection Success", message: "Your phone succefully connected to \(peripheral.name!)", preferredStyle: .alert)
+    
+    let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
+      self.dismiss(animated: true, completion: nil)
+    }
+    
+    successAlertView.addAction(okAction)
+    
+    self.present(successAlertView, animated: true, completion:nil)
+    
   }
   
   func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
