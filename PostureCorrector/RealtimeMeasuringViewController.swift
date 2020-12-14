@@ -11,6 +11,8 @@ class RealtimeMeasuringViewController: UIViewController {
   
   @IBOutlet weak var correctRateLabel: UILabel!
   @IBOutlet weak var badRateLabel: UILabel!
+  @IBOutlet weak var backgroundImage: UIImageView!
+  @IBOutlet weak var faceImage: UIImageView!
   
   private var resultList: [Result] = [] {
     
@@ -22,13 +24,13 @@ class RealtimeMeasuringViewController: UIViewController {
   }
 
   override func viewDidLoad() {
-      super.viewDidLoad()
-    
-      // Do any additional setup after loading the view.
+    super.viewDidLoad()
+    faceImage.image = UIImage(imageLiteralResourceName: "blank-face")
   }
   
   override func viewWillAppear(_ animated: Bool) {
     resultList.removeAll()
+    self.view.sendSubviewToBack(self.backgroundImage)
   }
   
   @IBAction func stopMeasuring(_ sender: UIButton) {
@@ -37,16 +39,29 @@ class RealtimeMeasuringViewController: UIViewController {
 }
 
 extension RealtimeMeasuringViewController {
-  var correctRate: Double {
+  
+  public var correctRate: Double {
     get {
       (Double(resultList.filter{$0.postureType == Result.PostureType.Correct}.count) / Double( resultList.count)) * 100
     }
   }
   
-  var badRate: Double {
+  public var badRate: Double {
     get {
       100 - correctRate
     }
   }
   
+  private func changeFaceByRatio(){
+    
+    if correctRate > 66 {
+      self.faceImage.image = UIImage(imageLiteralResourceName: "happy-face")
+    } else if correctRate > 32 {
+      self.faceImage.image = UIImage(imageLiteralResourceName: "blank-face")
+    } else if correctRate > 0 {
+      self.faceImage.image = UIImage(imageLiteralResourceName: "sad-face")
+    } else {
+      fatalError("Nan error: Correct & Bad Rate")
+    }
+  }
 }
