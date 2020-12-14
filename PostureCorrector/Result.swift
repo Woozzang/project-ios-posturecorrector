@@ -9,8 +9,11 @@ import Foundation
 
 class Result {
   
+  // SampleList that RaspberryPi passed
+  public static let testResultList: [Result] = []
+  
   private let date: Date
-  private let type: PostureType?
+  private let type: PostureType
   
   enum PostureType: String {
     case Correct
@@ -28,5 +31,11 @@ class Result {
   
   convenience init(type postureType: PostureType) {
     self.init(date: Date(), type: postureType)
+  }
+}
+
+extension Result {
+  var postureType: PostureType {
+      self.type
   }
 }
