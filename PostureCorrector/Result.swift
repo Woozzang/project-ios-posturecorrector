@@ -9,13 +9,15 @@ import Foundation
 
 class Result {
   
+  public static let date: Date = Date()
+  
   // SampleList that RaspberryPi passed
-  public static let testResultList: [Result] = []
+  public static var testResultList: [Result] = []
   
   private let date: Date
   private let type: PostureType
   
-  enum PostureType: String {
+  enum PostureType: CaseIterable{
     case Correct
     case Bad1
     case Bad2
@@ -35,7 +37,18 @@ class Result {
 }
 
 extension Result {
+  
+  var recordedDate: Date {
+    self.date
+  }
   var postureType: PostureType {
       self.type
+  }
+  
+  static func makeUpSampleList(count: Int) {
+    
+    for index in 1...count {
+      testResultList.append(Result(date:Date(timeInterval: TimeInterval(index), since: date), type: PostureType.allCases.randomElement()!))
+    }
   }
 }

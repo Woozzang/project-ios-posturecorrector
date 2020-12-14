@@ -33,9 +33,11 @@ class MainViewController: UIViewController {
     super.viewDidLoad()
       
     connectButton.isEnabled = true
-    measuringButton.isEnabled = false
+    measuringButton.isEnabled = true
     dailyreportButton.isEnabled = true
     
+    // Init SampleList
+    Result.makeUpSampleList(count: 60)
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -77,6 +79,11 @@ class MainViewController: UIViewController {
     }
     
   }
+  
+  @IBAction func startMeasuring(_ sender: UIButton) {
+    self.performSegue(withIdentifier: "measureActionSegue", sender: nil)
+  }
+  
   
   // unwindsegue 를 이용한 프로퍼티 접근
   @IBAction func cancel(_ unwindSegue: UIStoryboardSegue) {
