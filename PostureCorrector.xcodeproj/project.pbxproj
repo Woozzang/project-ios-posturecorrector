@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,10 +14,38 @@
 		AE270364255BD44E00299437 /* PostureCorrector.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AE270362255BD44E00299437 /* PostureCorrector.xcdatamodeld */; };
 		AE270366255BD44F00299437 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE270365255BD44F00299437 /* Assets.xcassets */; };
 		AE270369255BD44F00299437 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE270367255BD44F00299437 /* LaunchScreen.storyboard */; };
+		AE7FDAB025872AAE002A6E95 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7FDAAF25872AAE002A6E95 /* Result.swift */; };
+		AE7FDAB825872FC9002A6E95 /* PostureCorrectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7FDAB725872FC9002A6E95 /* PostureCorrectorTests.swift */; };
+		AE9274632586777800196E0A /* Pods_PostureCorrector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABE97D232A28907F34B8343 /* Pods_PostureCorrector.framework */; };
+		AE9274642586777800196E0A /* Pods_PostureCorrector.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CABE97D232A28907F34B8343 /* Pods_PostureCorrector.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AECAE72C2583D912003D10CE /* ConnectRpiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECAE72B2583D912003D10CE /* ConnectRpiViewController.swift */; };
 		AECAE7312583DF5A003D10CE /* RealtimeMeasuringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECAE7302583DF5A003D10CE /* RealtimeMeasuringViewController.swift */; };
 		AEDC0C29257669A000CDBCD1 /* BluetoothTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC0C242576645A00CDBCD1 /* BluetoothTableViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AE7FDABA25872FC9002A6E95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE27034E255BD44E00299437 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AE270355255BD44E00299437;
+			remoteInfo = PostureCorrector;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AE9274652586777800196E0A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AE9274642586777800196E0A /* Pods_PostureCorrector.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		AE1D49DA256F488A00D0A5A3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -29,13 +57,28 @@
 		AE270365255BD44F00299437 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE270368255BD44F00299437 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE27036A255BD44F00299437 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE7FDAAF25872AAE002A6E95 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		AE7FDAB525872FC9002A6E95 /* PostureCorrectorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PostureCorrectorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE7FDAB725872FC9002A6E95 /* PostureCorrectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostureCorrectorTests.swift; sourceTree = "<group>"; };
+		AE7FDAB925872FC9002A6E95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AECAE72B2583D912003D10CE /* ConnectRpiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectRpiViewController.swift; sourceTree = "<group>"; };
 		AECAE7302583DF5A003D10CE /* RealtimeMeasuringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeMeasuringViewController.swift; sourceTree = "<group>"; };
 		AEDC0C242576645A00CDBCD1 /* BluetoothTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothTableViewController.swift; sourceTree = "<group>"; };
+		BEC8371BAF714A7308461E11 /* Pods-PostureCorrector.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostureCorrector.release.xcconfig"; path = "Target Support Files/Pods-PostureCorrector/Pods-PostureCorrector.release.xcconfig"; sourceTree = "<group>"; };
+		CABE97D232A28907F34B8343 /* Pods_PostureCorrector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PostureCorrector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5B1906A1FCF30AE57133832 /* Pods-PostureCorrector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostureCorrector.debug.xcconfig"; path = "Target Support Files/Pods-PostureCorrector/Pods-PostureCorrector.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		AE270353255BD44E00299437 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE9274632586777800196E0A /* Pods_PostureCorrector.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE7FDAB225872FC9002A6E95 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -45,11 +88,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5EA9B2861A95F5A19226CC8B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F5B1906A1FCF30AE57133832 /* Pods-PostureCorrector.debug.xcconfig */,
+				BEC8371BAF714A7308461E11 /* Pods-PostureCorrector.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		5FBFE655E3EC56F39157E9C1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CABE97D232A28907F34B8343 /* Pods_PostureCorrector.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AE27034D255BD44E00299437 = {
 			isa = PBXGroup;
 			children = (
 				AE270358255BD44E00299437 /* PostureCorrector */,
+				AE7FDAB625872FC9002A6E95 /* PostureCorrectorTests */,
 				AE270357255BD44E00299437 /* Products */,
+				5EA9B2861A95F5A19226CC8B /* Pods */,
+				5FBFE655E3EC56F39157E9C1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				AE270356255BD44E00299437 /* PostureCorrector.app */,
+				AE7FDAB525872FC9002A6E95 /* PostureCorrectorTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -66,17 +130,27 @@
 			children = (
 				AE270359255BD44E00299437 /* AppDelegate.swift */,
 				AE27035B255BD44E00299437 /* SceneDelegate.swift */,
+				AE7FDAAF25872AAE002A6E95 /* Result.swift */,
 				AE27035F255BD44E00299437 /* Main.storyboard */,
 				AE1D49DA256F488A00D0A5A3 /* MainViewController.swift */,
 				AEDC0C242576645A00CDBCD1 /* BluetoothTableViewController.swift */,
 				AECAE72B2583D912003D10CE /* ConnectRpiViewController.swift */,
+				AECAE7302583DF5A003D10CE /* RealtimeMeasuringViewController.swift */,
 				AE270365255BD44F00299437 /* Assets.xcassets */,
 				AE270367255BD44F00299437 /* LaunchScreen.storyboard */,
 				AE27036A255BD44F00299437 /* Info.plist */,
 				AE270362255BD44E00299437 /* PostureCorrector.xcdatamodeld */,
-				AECAE7302583DF5A003D10CE /* RealtimeMeasuringViewController.swift */,
 			);
 			path = PostureCorrector;
+			sourceTree = "<group>";
+		};
+		AE7FDAB625872FC9002A6E95 /* PostureCorrectorTests */ = {
+			isa = PBXGroup;
+			children = (
+				AE7FDAB725872FC9002A6E95 /* PostureCorrectorTests.swift */,
+				AE7FDAB925872FC9002A6E95 /* Info.plist */,
+			);
+			path = PostureCorrectorTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,9 +160,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE27036D255BD44F00299437 /* Build configuration list for PBXNativeTarget "PostureCorrector" */;
 			buildPhases = (
+				7CD1D9B2A4196A79A1EF2DC0 /* [CP] Check Pods Manifest.lock */,
 				AE270352255BD44E00299437 /* Sources */,
 				AE270353255BD44E00299437 /* Frameworks */,
 				AE270354255BD44E00299437 /* Resources */,
+				F3FAD3F6EDD191EB9468FBF7 /* [CP] Embed Pods Frameworks */,
+				AE9274652586777800196E0A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -99,17 +176,39 @@
 			productReference = AE270356255BD44E00299437 /* PostureCorrector.app */;
 			productType = "com.apple.product-type.application";
 		};
+		AE7FDAB425872FC9002A6E95 /* PostureCorrectorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE7FDABC25872FC9002A6E95 /* Build configuration list for PBXNativeTarget "PostureCorrectorTests" */;
+			buildPhases = (
+				AE7FDAB125872FC9002A6E95 /* Sources */,
+				AE7FDAB225872FC9002A6E95 /* Frameworks */,
+				AE7FDAB325872FC9002A6E95 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AE7FDABB25872FC9002A6E95 /* PBXTargetDependency */,
+			);
+			name = PostureCorrectorTests;
+			productName = PostureCorrectorTests;
+			productReference = AE7FDAB525872FC9002A6E95 /* PostureCorrectorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		AE27034E255BD44E00299437 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1210;
+				LastSwiftUpdateCheck = 1220;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
 					AE270355255BD44E00299437 = {
 						CreatedOnToolsVersion = 12.1;
+					};
+					AE7FDAB425872FC9002A6E95 = {
+						CreatedOnToolsVersion = 12.2;
+						TestTargetID = AE270355255BD44E00299437;
 					};
 				};
 			};
@@ -127,6 +226,7 @@
 			projectRoot = "";
 			targets = (
 				AE270355255BD44E00299437 /* PostureCorrector */,
+				AE7FDAB425872FC9002A6E95 /* PostureCorrectorTests */,
 			);
 		};
 /* End PBXProject section */
@@ -142,7 +242,56 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AE7FDAB325872FC9002A6E95 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7CD1D9B2A4196A79A1EF2DC0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PostureCorrector-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F3FAD3F6EDD191EB9468FBF7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PostureCorrector/Pods-PostureCorrector-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PostureCorrector/Pods-PostureCorrector-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PostureCorrector/Pods-PostureCorrector-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AE270352255BD44E00299437 /* Sources */ = {
@@ -155,11 +304,28 @@
 				AEDC0C29257669A000CDBCD1 /* BluetoothTableViewController.swift in Sources */,
 				AE270364255BD44E00299437 /* PostureCorrector.xcdatamodeld in Sources */,
 				AE27035C255BD44E00299437 /* SceneDelegate.swift in Sources */,
+				AE7FDAB025872AAE002A6E95 /* Result.swift in Sources */,
 				AE1D49DB256F488A00D0A5A3 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AE7FDAB125872FC9002A6E95 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE7FDAB825872FC9002A6E95 /* PostureCorrectorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AE7FDABB25872FC9002A6E95 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AE270355255BD44E00299437 /* PostureCorrector */;
+			targetProxy = AE7FDABA25872FC9002A6E95 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		AE27035F255BD44E00299437 /* Main.storyboard */ = {
@@ -299,6 +465,7 @@
 		};
 		AE27036E255BD44F00299437 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5B1906A1FCF30AE57133832 /* Pods-PostureCorrector.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -318,6 +485,7 @@
 		};
 		AE27036F255BD44F00299437 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEC8371BAF714A7308461E11 /* Pods-PostureCorrector.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -332,6 +500,48 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		AE7FDABD25872FC9002A6E95 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 949WFFQ7HH;
+				INFOPLIST_FILE = PostureCorrectorTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.woozang.PostureCorrectorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PostureCorrector.app/PostureCorrector";
+			};
+			name = Debug;
+		};
+		AE7FDABE25872FC9002A6E95 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 949WFFQ7HH;
+				INFOPLIST_FILE = PostureCorrectorTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.woozang.PostureCorrectorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PostureCorrector.app/PostureCorrector";
 			};
 			name = Release;
 		};
@@ -352,6 +562,15 @@
 			buildConfigurations = (
 				AE27036E255BD44F00299437 /* Debug */,
 				AE27036F255BD44F00299437 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE7FDABC25872FC9002A6E95 /* Build configuration list for PBXNativeTarget "PostureCorrectorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE7FDABD25872FC9002A6E95 /* Debug */,
+				AE7FDABE25872FC9002A6E95 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
