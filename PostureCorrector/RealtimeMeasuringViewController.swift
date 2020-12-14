@@ -10,18 +10,25 @@ import UIKit
 class RealtimeMeasuringViewController: UIViewController {
   
   @IBOutlet weak var timerLabel: UILabel!
+  @IBOutlet weak var faceImage: UIImageView!
+  @IBOutlet weak var feedBackLabel: UILabel!
+  
   @IBOutlet weak var correctRateLabel: UILabel!
   @IBOutlet weak var badRateLabel: UILabel!
   @IBOutlet weak var backgroundImage: UIImageView!
-  @IBOutlet weak var faceImage: UIImageView!
   
+
+  
+  // Timer for timerLabel
   var timer: Timer?
+  var sec: Int = 0
   
+  // Timer for Update FaceImage by ratio
   var updateFaceTimer: Timer?
   // Interval that RaspberryPi sending data
   var raspberryInterval: Double = 1.0
   
-  var sec: Int = 0
+
   
   private var resultList: [Result] = [] {
     
@@ -42,7 +49,10 @@ class RealtimeMeasuringViewController: UIViewController {
     }
     
     self.updateFaceTimer = Timer.scheduledTimer(withTimeInterval: raspberryInterval, repeats: true, block: { (_) in
-      self.changeFaceByRatio()
+      self.changeInfoByRatio()
+      
+      self.correctRateLabel.text = String(self.correctRate)
+      self.badRateLabel.text = String(self.badRate)
     })
   }
   
@@ -87,15 +97,25 @@ extension RealtimeMeasuringViewController {
     }
   }
   
-  private func changeFaceByRatio(){
+  private func changeInfoByRatio(){
     
     if correctRate > 66 {
+      
       self.faceImage.image = UIImage(imageLiteralResourceName: "happy-face")
+      self.feedBackLabel.text = "Keep Going!"
+      
     } else if correctRate > 32 {
+      
       self.faceImage.image = UIImage(imageLiteralResourceName: "blank-face")
+      self.feedBackLabel.text = "Not bad"
+      
     } else if correctRate > 0 {
+      
       self.faceImage.image = UIImage(imageLiteralResourceName: "sad-face")
+      self.feedBackLabel.text = "Your posture is inappropriate."
+      
     } else {
+      
       fatalError("Nan error: Correct & Bad Rate")
     }
   }
