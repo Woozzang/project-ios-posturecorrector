@@ -42,8 +42,17 @@ class RealtimeMeasuringViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     faceImage.image = UIImage(imageLiteralResourceName: "blank-face")
+    self.view.sendSubviewToBack(backgroundImage)
     
     self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+      
+      if self.sec < Result.testResultList.count {
+        self.resultList.append(Result.testResultList[self.sec])
+        
+        //debugging
+        print(self.resultList[self.resultList.count-1].postureType)
+      }
+      
       self.sec += 1
       self.timerLabel.text = self.timeFomatter(self.sec)
     }
@@ -51,8 +60,8 @@ class RealtimeMeasuringViewController: UIViewController {
     self.updateFaceTimer = Timer.scheduledTimer(withTimeInterval: raspberryInterval, repeats: true, block: { (_) in
       self.changeInfoByRatio()
       
-      self.correctRateLabel.text = String(self.correctRate)
-      self.badRateLabel.text = String(self.badRate)
+      self.correctRateLabel.text = String(format: "%.1f", self.correctRate) + "%"
+      self.badRateLabel.text = String(format: "%.1f", self.badRate) + "%"
     })
   }
   
@@ -60,9 +69,10 @@ class RealtimeMeasuringViewController: UIViewController {
     resultList.removeAll()
     self.view.sendSubviewToBack(self.backgroundImage)
   }
-  
-  @IBAction func stopMeasuring(_ sender: UIButton) {
-    
+
+  override func viewWillDisappear(_ animated: Bool) {
+    self.timer?.invalidate()
+    self.updateFaceTimer?.invalidate()
   }
 }
 
@@ -87,13 +97,23 @@ extension RealtimeMeasuringViewController {
   
   public var correctRate: Double {
     get {
-      (Double(resultList.filter{$0.postureType == Result.PostureType.Correct}.count) / Double( resultList.count)) * 100
+      if resultList.count == 0 {
+        return 0
+      }
+      
+      let correctCount = Double(resultList.filter{$0.postureType == Result.PostureType.Correct}.count)
+      
+      return correctCount / Double(resultList.count) * 100
     }
   }
   
   public var badRate: Double {
     get {
-      100 - correctRate
+      if resultList.count == 0 {
+        return 0
+      }
+      
+      return 100 - correctRate
     }
   }
   
@@ -102,17 +122,17 @@ extension RealtimeMeasuringViewController {
     if correctRate > 66 {
       
       self.faceImage.image = UIImage(imageLiteralResourceName: "happy-face")
-      self.feedBackLabel.text = "Keep Going!"
+      self.feedBackLabel.text = "Keep Going!🤩"
       
     } else if correctRate > 32 {
       
       self.faceImage.image = UIImage(imageLiteralResourceName: "blank-face")
-      self.feedBackLabel.text = "Not bad"
+      self.feedBackLabel.text = "Not bad...?🙄"
       
-    } else if correctRate > 0 {
+    } else if correctRate >= 0 {
       
       self.faceImage.image = UIImage(imageLiteralResourceName: "sad-face")
-      self.feedBackLabel.text = "Your posture is inappropriate."
+      self.feedBackLabel.text = "Inappropriate😡"
       
     } else {
       
